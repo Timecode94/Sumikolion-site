@@ -124,3 +124,6 @@ body{margin:0;}
 .lightbox-prev{left:1.5rem; top:50%; transform:translateY(-50%);}
 .lightbox-next{right:1.5rem; top:50%; transform:translateY(-50%);}
 .lightbox-close:hover, .lightbox-prev:hover, .lightbox-next:hover{border-color:var(--vermillion); color:var(--vermillion);}
+@media (max-width:800px){
+  .lightbox-prev, .lightbox-next{display:none;}
+}
