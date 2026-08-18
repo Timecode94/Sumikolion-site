@@ -115,7 +115,12 @@ body{margin:0;}
 }
 .lightbox-overlay.open{display:flex;}
 .lightbox-overlay img{max-width:92vw; max-height:80vh; object-fit:contain; border:1px solid var(--line);}
-.lightbox-cap{position:absolute; bottom:2rem; left:0; right:0; text-align:center; color:var(--paper-dim); font-size:0.9rem;}
+.lightbox-cap{
+  position:absolute; bottom:1.2rem; left:50%; transform:translateX(-50%);
+  text-align:center; color:#fff; font-size:0.9rem;
+  background:rgba(20,19,18,0.7); padding:0.4rem 1rem; border-radius:2px;
+  max-width:90vw;
+}
 .lightbox-close, .lightbox-prev, .lightbox-next{
   position:absolute; background:none; border:1px solid var(--line); color:var(--paper);
   font-family:'Fraunces', serif; cursor:pointer; padding:0.5rem 0.9rem; font-size:1.1rem; line-height:1;
