@@ -88,26 +88,39 @@ document.addEventListener("DOMContentLoaded", function () {
   // ---------- Balayage tactile (swipe) sur mobile ----------
   var touchStartX = 0;
   var touchStartY = 0;
+  var isSwiping = false;
 
   overlay.addEventListener("touchstart", function (e) {
     touchStartX = e.changedTouches[0].screenX;
     touchStartY = e.changedTouches[0].screenY;
+    isSwiping = false;
   }, { passive: true });
 
+  overlay.addEventListener("touchmove", function (e) {
+    var dx = e.changedTouches[0].screenX - touchStartX;
+    var dy = e.changedTouches[0].screenY - touchStartY;
+    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 10) {
+      isSwiping = true;
+      e.preventDefault(); // empêche le défilement natif et le clic fantôme qui suivrait
+    }
+  }, { passive: false });
+
   overlay.addEventListener("touchend", function (e) {
+    if (!isSwiping) return;
     var touchEndX = e.changedTouches[0].screenX;
-    var touchEndY = e.changedTouches[0].screenY;
     var diffX = touchEndX - touchStartX;
-    var diffY = touchEndY - touchStartY;
-    var threshold = 50; // distance minimale en pixels pour compter comme un balayage
-
-    // On ignore les balayages surtout verticaux (l'utilisateur fait peut-être défiler la page)
-    if (Math.abs(diffX) < threshold || Math.abs(diffX) < Math.abs(diffY)) return;
-
+    var threshold = 40;
+    if (Math.abs(diffX) < threshold) {
+      isSwiping = false;
+      return;
+    }
+    e.preventDefault();
+    e.stopPropagation(); // empêche le clic de fermeture de se déclencher après le balayage
     if (diffX < 0) {
       show(current + 1); // balayage vers la gauche -> photo suivante
     } else {
       show(current - 1); // balayage vers la droite -> photo précédente
     }
-  }, { passive: true });
+    isSwiping = false;
+  }, { passive: false });
 })();
