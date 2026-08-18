@@ -118,7 +118,7 @@ body{margin:0;}
 .lightbox-cap{
   position:absolute; bottom:1.2rem; left:50%; transform:translateX(-50%);
   text-align:center; color:#fff; font-size:0.9rem;
-  background:rgba(20,19,18,0.7); padding:0.4rem 1rem; border-radius:2px;
+  text-shadow:0 1px 6px rgba(0,0,0,0.7);
   max-width:90vw;
 }
 .lightbox-close, .lightbox-prev, .lightbox-next{
