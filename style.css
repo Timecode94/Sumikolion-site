@@ -5,7 +5,7 @@
   --bg-raised:#363940;
   --paper:#efe9e2;
   --paper-dim:#8a8b8f;
-  --vermillion:#c1502e;
+  --vermillion:#e2693f;
   --line:#454852;
   --cat-peinture:#c17a4a;
   --cat-gravures:#7a9a9e;
@@ -28,7 +28,7 @@ header.site-header{
 }
 .primary-nav .mark{font-family:'Fraunces', serif; font-weight:600; font-size:1.3rem; letter-spacing:0.02em; color:var(--paper); border:none;}
 .primary-nav ul{list-style:none; display:flex; gap:1.4rem; margin:0; padding:0; flex-wrap:wrap;}
-.primary-nav a{font-size:0.82rem; text-transform:uppercase; letter-spacing:0.06em; border:none; color:var(--paper-dim);}
+.primary-nav a{font-size:0.82rem; text-transform:uppercase; letter-spacing:0.06em; border:none; color:var(--paper);}
 .primary-nav a:hover{color:var(--vermillion);}
 .primary-nav a.active{color:var(--vermillion);}
 .primary-nav a.cat-peinture.active{color:var(--cat-peinture);}
@@ -40,7 +40,7 @@ header.site-header{
   padding:0.75rem 3rem;
 }
 .sub-nav ul{list-style:none; display:flex; gap:1.3rem; margin:0; padding:0; flex-wrap:wrap;}
-.sub-nav a{font-size:0.78rem; border:none; color:var(--paper-dim);}
+.sub-nav a{font-size:0.78rem; border:none; color:var(--paper);}
 .sub-nav a:hover, .sub-nav a[aria-current="page"]{color:var(--vermillion);}
 
 main{max-width:1200px; margin:0 auto; padding:3.5rem 3rem 6rem;}
