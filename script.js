@@ -84,4 +84,30 @@ document.addEventListener("DOMContentLoaded", function () {
     if (e.key === "ArrowLeft") show(current - 1);
     if (e.key === "ArrowRight") show(current + 1);
   });
+
+  // ---------- Balayage tactile (swipe) sur mobile ----------
+  var touchStartX = 0;
+  var touchStartY = 0;
+
+  overlay.addEventListener("touchstart", function (e) {
+    touchStartX = e.changedTouches[0].screenX;
+    touchStartY = e.changedTouches[0].screenY;
+  }, { passive: true });
+
+  overlay.addEventListener("touchend", function (e) {
+    var touchEndX = e.changedTouches[0].screenX;
+    var touchEndY = e.changedTouches[0].screenY;
+    var diffX = touchEndX - touchStartX;
+    var diffY = touchEndY - touchStartY;
+    var threshold = 50; // distance minimale en pixels pour compter comme un balayage
+
+    // On ignore les balayages surtout verticaux (l'utilisateur fait peut-être défiler la page)
+    if (Math.abs(diffX) < threshold || Math.abs(diffX) < Math.abs(diffY)) return;
+
+    if (diffX < 0) {
+      show(current + 1); // balayage vers la gauche -> photo suivante
+    } else {
+      show(current - 1); // balayage vers la droite -> photo précédente
+    }
+  }, { passive: true });
 })();
