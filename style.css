@@ -40,7 +40,7 @@ header.site-header{
   padding:0.75rem 3rem;
 }
 .sub-nav ul{list-style:none; display:flex; gap:1.3rem; margin:0; padding:0; flex-wrap:wrap;}
-.sub-nav a{font-size:0.95rem; border:none; color:var(--paper);}
+.sub-nav a{font-size:1.05rem; border:none; color:var(--paper);}
 .sub-nav a:hover, .sub-nav a[aria-current="page"]{color:var(--vermillion);}
 
 main{max-width:1200px; margin:0 auto; padding:3.5rem 3rem 6rem;}
